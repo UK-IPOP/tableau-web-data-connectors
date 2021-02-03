@@ -142,7 +142,7 @@
 	// to the submitButton.
 	$(document).ready(function () {
 		$('#submitButton').click(function () {
-			tableau.connectionName = 'FEMA';
+			tableau.connectionName = 'FEMA HazardMitigationAssistanceMitigatedProperties';
 			tableau.submit();
 		});
 	});
