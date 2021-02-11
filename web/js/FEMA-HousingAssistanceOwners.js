@@ -68,9 +68,9 @@
 		var totalRecords;
 		var baseURL = 'https://www.fema.gov/api/open/v2/HousingAssistanceOwners';
 		
-		fetch(baseURL + '?$inlinecount=allpages&$top=1')
-			.then(response => response.json())
-			.then(data => totalRecords= data.metadata.count);
+		// fetch(baseURL + '?$inlinecount=allpages&$top=1')
+		// 	.then(response => response.json())
+		// 	.then(data => totalRecords= data.metadata.count);
 		
 		Promise.all(
 			[...Array(110).keys()].map(n => {
