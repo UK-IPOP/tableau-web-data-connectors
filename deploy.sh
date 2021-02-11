@@ -10,8 +10,7 @@ cp -r web/* dist/
 
 # navigate into the build output directory
 cd dist
-touch index.md
-echo "This is the homepage">>index.md
+
 
 echo "Installing dependencies"
 npm install --production
