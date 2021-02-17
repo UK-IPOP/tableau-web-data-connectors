@@ -34,6 +34,10 @@
 				dataType: tableau.dataTypeEnum.bool,
 			},
 			{
+				id: 'manner',
+				dataType: tableau.dataTypeEnum.string,
+			},
+			{
 				id: 'primarycause',
 				dataType: tableau.dataTypeEnum.string,
 			},
@@ -125,6 +129,7 @@
 						gunrelated: resp[i].gunrelated,
 						opioids: resp[i].opioids,
 						latino: resp[i].latino,
+						manner: resp[i].manner,
 						cold_related: resp[i].cold_related,
 						heat_related: resp[i].heat_related,
 						commissioner_district: resp[i].commissioner_district,
