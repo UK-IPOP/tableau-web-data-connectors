@@ -50,7 +50,7 @@
 				dataType: tableau.dataTypeEnum.bool,
 			},
 			{
-				id: 'opiods',
+				id: 'opioids',
 				dataType: tableau.dataTypeEnum.bool,
 			},
 			{
@@ -119,6 +119,11 @@
 						age: resp[i].age,
 						gender: resp[i].gender,
 						race: resp[i].race,
+						primarycause: resp[i].primarycause,
+						primarycause_linea: resp[i].primarycause_linea,
+						secondarycause: resp[i].secondarycause,
+						gunrelated: resp[i].gunrelated,
+						opioids: resp[i].opioids,
 						latino: resp[i].latino,
 						cold_related: resp[i].cold_related,
 						heat_related: resp[i].heat_related,
