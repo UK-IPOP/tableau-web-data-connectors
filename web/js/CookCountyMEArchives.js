@@ -34,6 +34,26 @@
 				dataType: tableau.dataTypeEnum.bool,
 			},
 			{
+				id: 'primarycause',
+				dataType: tableau.dataTypeEnum.string,
+			},
+			{
+				id: 'primarycause_linea',
+				dataType: tableau.dataTypeEnum.string,
+			},
+			{
+				id: 'secondarycause',
+				dataType: tableau.dataTypeEnum.string,
+			},
+			{
+				id: 'gunrelated',
+				dataType: tableau.dataTypeEnum.bool,
+			},
+			{
+				id: 'opiods',
+				dataType: tableau.dataTypeEnum.bool,
+			},
+			{
 				id: 'cold_related',
 				dataType: tableau.dataTypeEnum.bool,
 			},
