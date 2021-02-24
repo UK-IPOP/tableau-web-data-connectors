@@ -30,7 +30,7 @@
 			'https://api.fda.gov/drug/event.json?search=(receivedate:[20040101+TO+20210224])+AND+opioids&count=patient.drug.openfda.pharm_class_epc.exact',
 			function (resp) {
 				var tableData = [];
-				for (var i = 0, len = resp.length; i < len; i++) {
+				for (var i = 0, len = resp.results.length; i < len; i++) {
 					tableData.push({
 						term: resp.results[i].term,
 						count: resp.results[i].count,
