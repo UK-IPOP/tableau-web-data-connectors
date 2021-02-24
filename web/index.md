@@ -10,3 +10,5 @@
   - This data set contains general information on declared disasters, including the disaster number, declaration type, state, description, incident start and end dates, and incident type.
 - [Cook County Medical Examiner Case Archives](CookCountyMEArchives.html)
   - This contains information about deaths that occurred in Cook County that were under the Medical Examiner’s jurisdiction. This dataset includes information from deaths starting in August 2014 to the present, with information updated daily.
+- [Open FDA Opioid Sample](OpenFDA-Sample.html)
+  - This is a sample api query from the Open FDA datasets created using [this interactive chart](https://open.fda.gov/apis/drug/event/explore-the-api-with-an-interactive-chart/).

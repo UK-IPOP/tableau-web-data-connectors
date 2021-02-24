@@ -15,6 +15,7 @@ The landing page is available here: https://uk-ipop.github.io/tableau-web-data-c
 - [FEMA Public Assisted Funded Projects](https://www.fema.gov/openfema-data-page/public-assistance-funded-projects-details)
 - [FEMA Web Declaration Areas](https://www.fema.gov/openfema-data-page/fema-web-declaration-areas-v1)
 - [Cook County ME Archives](https://datacatalog.cookcountyil.gov/Public-Safety/Medical-Examiner-Case-Archive/cjeq-bs86)
+- [Open FDA Sample (direct link)](https://api.fda.gov/drug/event.json?search=(receivedate:[20040101+TO+20210224])+AND+opioids&count=patient.drug.openfda.pharm_class_epc.exact)
 
 ## Steps to add a new connector:
 1. Create new JS and HTML files by copying previous files and renaming.

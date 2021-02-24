@@ -100,7 +100,7 @@
 		];
 
 		var tableSchema = {
-			id: 'WDC',
+			id: 'CookCounty',
 			alias: 'CookCountyMEArchives',
 			columns: cols,
 		};
