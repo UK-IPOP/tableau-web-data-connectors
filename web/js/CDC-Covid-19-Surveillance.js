@@ -1,6 +1,40 @@
 (function () {
 	var myConnector = tableau.makeConnector();
 
+	// Make a reusable function that returns a single Promise
+	function fetchAPI(num, base_url) {
+		return new Promise(function (resolve, reject) {
+			const url = base_url + '?$offset=' + num;
+			fetch(url)
+				.then((resp) => resp.json())
+				.then((data) => {
+					var combinedData = [];
+					data.forEach((record) => {
+						const resolveData = {};
+						resolveData.case_month = record.case_month;
+						resolveData.res_state = record.res_state;
+						resolveData.state_fips_code = record.state_fips_code;
+						resolveData.res_county = record.res_county;
+						resolveData.county_fips_code = record.county_fips_code;
+						resolveData.age_group = record.age_group;
+						resolveData.sex = record.sex;
+						resolveData.race = record.race;
+						resolveData.ethnicity = record.ethnicity;
+						resolveData.case_onset_interval = record.case_onset_interval;
+						resolveData.process = record.process;
+						resolveData.exposure_yn = record.exposure_yn;
+						resolveData.current_status = record.current_status;
+						resolveData.symptom_status = record.symptom_status;
+						resolveData.exposure_yn = record.exposure_yn;
+						resolveData.hosp_yn = record.hosp_yn;
+						resolveData.icu_yn = record.icu_yn;
+						resolveData.death_yn = record.death_yn;
+					});
+					resolve(combinedData);
+				});
+		});
+	}
+
 	// This creates the Web Data Connector schema that
 	// describes the information returned by hte WDC.
 	myConnector.getSchema = function (schemaCallback) {
@@ -78,33 +112,20 @@
 	// This function is called when data is required from the
 	// Web Data Connector.
 	myConnector.getData = function (table, doneCallback) {
-		$.getJSON('https://data.cdc.gov/resource/n8mc-b4w4.json', function (resp) {
-			var tableData = [];
+		var baseURL = 'https://data.cdc.gov/resource/n8mc-b4w4.json';
 
-			for (var i = 0, len = resp.length; i < len; i++) {
-				tableData.push({
-					case_month: resp[i].case_month,
-					res_state: resp[i].res_state,
-					state_fips_code: resp[i].state_fips_code,
-					res_county: resp[i].res_county,
-					county_fips_code: resp[i].county_fips_code,
-					age_group: resp[i].age_group,
-					sex: resp[i].sex,
-					race: resp[i].race,
-					ethnicity: resp[i].ethnicity,
-					case_onset_interval: resp[i].case_onset_interval,
-					process: resp[i].process,
-					exposure_yn: resp[i].exposure_yn,
-					current_status: resp[i].current_status,
-					symptom_status: resp[i].symptom_status,
-					exposure_yn: resp[i].exposure_yn,
-					hosp_yn: resp[i].hosp_yn,
-					icu_yn: resp[i].icu_yn,
-					death_yn: resp[i].death_yn,
+		Promise.all(
+			[...Array(22600).keys()].map((n) => {
+				return fetchAPI(n * 1000, baseURL);
+			})
+		).then((data) => {
+			var final = [];
+			Object.keys(data).forEach((k) => {
+				data[k].forEach((r) => {
+					final.push(r);
 				});
-			}
-
-			table.appendRows(tableData);
+			});
+			table.appendRows(final);
 			doneCallback();
 		});
 	};
