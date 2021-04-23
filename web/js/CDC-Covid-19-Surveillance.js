@@ -115,7 +115,7 @@
 		var baseURL = 'https://data.cdc.gov/resource/n8mc-b4w4.json';
 
 		Promise.all(
-			[...Array(22600).keys()].map((n) => {
+			[...Array(22500).keys()].map((n) => {
 				return fetchAPI(n * 1000, baseURL);
 			})
 		).then((data) => {
