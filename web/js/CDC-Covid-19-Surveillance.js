@@ -4,7 +4,7 @@
 	// Make a reusable function that returns a single Promise
 	function fetchAPI(num, base_url) {
 		return new Promise(function (resolve, reject) {
-			const url = base_url + '?$offset=' + num;
+			const url = base_url + '&$offset=' + num;
 			fetch(url)
 				.then((resp) => resp.json())
 				.then((data) => {
@@ -112,42 +112,22 @@
 	// This function is called when data is required from the
 	// Web Data Connector.
 	myConnector.getData = function (table, doneCallback) {
-		var baseURL = 'https://data.cdc.gov/resource/n8mc-b4w4.json';
-		var newURL = '';
+		var baseURL = 'https://data.cdc.gov/resource/n8mc-b4w4.json?res_state=KY&$limit=50000';
 
-		myConnector.getData = function (table, doneCallback) {
-			$.getJSON(
-				'https://data.cdc.gov/resource/n8mc-b4w4.json?$limit=50000&$order=case_month%20DESC',
-				function (resp) {
-					var tableData = [];
-
-					for (var i = 0, len = resp.length; i < len; i++) {
-						tableData.push({
-							case_month: resp[i].case_month,
-							res_state: resp[i].res_state,
-							state_fips_code: resp[i].state_fips_code,
-							res_county: resp[i].res_county,
-							county_fips_code: resp[i].county_fips_code,
-							age_group: resp[i].age_group,
-							sex: resp[i].sex,
-							race: resp[i].race,
-							ethnicity: resp[i].ethnicity,
-							case_onset_interval: resp[i].case_onset_interval,
-							process: resp[i].process,
-							exposure_yn: resp[i].exposure_yn,
-							current_status: resp[i].current_status,
-							symptom_status: resp[i].symptom_status,
-							exposure_yn: resp[i].exposure_yn,
-							hosp_yn: resp[i].hosp_yn,
-							icu_yn: resp[i].icu_yn,
-							death_yn: resp[i].death_yn,
-						});
-					}
-					table.appendRows(tableData);
-					doneCallback();
-				}
-			);
-		};
+		Promise.all(
+			[...Array(5).keys()].map((n) => {
+				return fetchAPI(n * 50000, baseURL);
+			})
+		).then((data) => {
+			var final = [];
+			Object.keys(data).forEach((k) => {
+				data[k].forEach((r) => {
+					final.push(r);
+				});
+			});
+			table.appendRows(final);
+			doneCallback();
+		});
 	};
 
 	// This is required to register the Web Data Connector.
