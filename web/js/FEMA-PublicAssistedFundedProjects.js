@@ -55,7 +55,7 @@
 	// This function is called when data is required from the
 	// Web Data Connector.
 	myConnector.getData = function (table, doneCallback) {
-		var baseURL = '	https://www.fema.gov/api/open/v1/PublicAssistanceFundedProjectsDetails';
+		var baseURL = '	https://www.fema.gov/api/open/v2/PublicAssistanceFundedProjectsDetails';
 		
 		Promise.all(
 			[...Array(750).keys()].map(n => {
