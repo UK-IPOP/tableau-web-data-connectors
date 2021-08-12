@@ -56,7 +56,7 @@
 	// Web Data Connector.
 	myConnector.getData = function (table, doneCallback) {
 		var totalRecords;
-		var baseURL = 'https://www.fema.gov/api/open/v1/FemaWebDeclarationAreas';
+		var baseURL = 'https://www.fema.gov/api/open/v2/FemaWebDeclarationAreas';
 		
 		Promise.all(
 			[...Array(415).keys()].map(n => {
