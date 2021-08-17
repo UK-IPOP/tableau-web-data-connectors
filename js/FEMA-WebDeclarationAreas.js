@@ -59,7 +59,7 @@
 		var baseURL = 'https://www.fema.gov/api/open/v1/FemaWebDeclarationAreas';
 
 		Promise.all(
-			[...Array(415).keys()].map((n) => {
+			[...Array(500).keys()].map((n) => {
 				return fetchAPI(n * 1000, baseURL);
 			})
 		).then((data) => {

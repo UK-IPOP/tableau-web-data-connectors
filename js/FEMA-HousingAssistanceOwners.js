@@ -68,7 +68,7 @@
 		var baseURL = 'https://www.fema.gov/api/open/v2/HousingAssistanceOwners';
 
 		Promise.all(
-			[...Array(110).keys()].map((n) => {
+			[...Array(120).keys()].map((n) => {
 				return fetchAPI(n * 1000, baseURL);
 			})
 		).then((data) => {
