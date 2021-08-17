@@ -12,7 +12,7 @@ The landing page is available here: https://uk-ipop.github.io/tableau-web-data-c
 
 ## Connector Dataset Homepages:
 
-- [FEMA Disaster Declarations](https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v1)
+- [FEMA Disaster Declarations](https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v2)
 - [FEMA Housing Assistance Owners](https://www.fema.gov/openfema-data-page/housing-assistance-program-data-owners-v2)
 - [FEMA Public Assisted Funded Projects](https://www.fema.gov/openfema-data-page/public-assistance-funded-projects-details)
 - [FEMA Web Declaration Areas](https://www.fema.gov/openfema-data-page/fema-web-declaration-areas-v1)
