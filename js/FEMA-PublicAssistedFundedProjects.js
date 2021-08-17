@@ -1,25 +1,25 @@
 (function () {
 	var myConnector = tableau.makeConnector();
-	
+
 	// Make a reusable function that returns a single Promise
 	function fetchAPI(num, base_url) {
-		return new Promise(function(resolve, reject) {
+		return new Promise(function (resolve, reject) {
 			const url = base_url + '?$skip=' + num;
 			fetch(url)
-				.then(resp => resp.json())
+				.then((resp) => resp.json())
 				.then((data) => {
-					var combinedData = []
-					data.PublicAssistanceFundedProjectsDetails.forEach(record => {
-							const resolveData = {};
-							resolveData.disasterNumber = record.disasterNumber
-							resolveData.damageCategoryCode = record.damageCategoryCode
-							resolveData.county = record.county
-							resolveData.countyCode = record.countyCode
-							combinedData.push(resolveData)
+					var combinedData = [];
+					data.PublicAssistanceFundedProjectsDetails.forEach((record) => {
+						const resolveData = {};
+						resolveData.disasterNumber = record.disasterNumber;
+						resolveData.damageCategoryCode = record.damageCategoryCode;
+						resolveData.county = record.county;
+						resolveData.countyCode = record.countyCode;
+						combinedData.push(resolveData);
 					});
-					resolve(combinedData)
-				})
-		})
+					resolve(combinedData);
+				});
+		});
 	}
 
 	// This creates the Web Data Connector schema that
@@ -55,22 +55,23 @@
 	// This function is called when data is required from the
 	// Web Data Connector.
 	myConnector.getData = function (table, doneCallback) {
-		var baseURL = '	https://www.fema.gov/api/open/v2/PublicAssistanceFundedProjectsDetails';
-		
+		var baseURL = '	https://www.fema.gov/api/open/v1/PublicAssistanceFundedProjectsDetails';
+
 		Promise.all(
-			[...Array(750).keys()].map(n => {
-				return fetchAPI(n * 1000, baseURL)
-			})).then(data => {
-				var final = [];
-				Object.keys(data).forEach(k => {
-					data[k].forEach(r => {
-						final.push(r)
-					})
-				})
-				table.appendRows(final)
-				doneCallback()
+			[...Array(750).keys()].map((n) => {
+				return fetchAPI(n * 1000, baseURL);
 			})
-	}
+		).then((data) => {
+			var final = [];
+			Object.keys(data).forEach((k) => {
+				data[k].forEach((r) => {
+					final.push(r);
+				});
+			});
+			table.appendRows(final);
+			doneCallback();
+		});
+	};
 
 	// This is reqired to register the Web Data Connector.
 	tableau.registerConnector(myConnector);
