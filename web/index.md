@@ -12,6 +12,8 @@ Use `Ctrl/Cmd + F` to search if needed.
   - The Public Assistance Funded Projects Details dataset contains obligated (financial obligation to grantee) Public Assistance projects, lists public assistance recipients designated as applicants in the data, and a list of every funded, individual project.
 - [FEMA Web Declaration Areas](FEMA-WebDeclarationAreas.html)
   - This data set contains general information on declared disasters, including the disaster number, declaration type, state, description, incident start and end dates, and incident type.
+- [FEMA Hazard Mitigation Assistance Projects](FEMA-HazardMitigationAssistanceProjects.html)
+  - The dataset contains funded projects (financial obligation to grantee) under the Hazard Mitigation Assistance (HMA) grant programs.
 - [Cook County Medical Examiner Case Archives](CookCountyMEArchives.html)
   - This contains information about deaths that occurred in Cook County that were under the Medical Examiner’s jurisdiction. This dataset includes information from deaths starting in August 2014 to the present, with information updated daily.
 - [Open FDA Opioid Sample](OpenFDASample.html)
