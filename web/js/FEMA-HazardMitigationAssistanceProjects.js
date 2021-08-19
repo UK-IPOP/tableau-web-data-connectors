@@ -9,7 +9,7 @@
 				.then((resp) => resp.json())
 				.then((data) => {
 					var combinedData = [];
-					data.HousingAssistanceOwners.forEach((record) => {
+					data.HazardMitigationAssistance.forEach((record) => {
 						const resolveData = {};
 						resolveData.region = record.region;
 						resolveData.stateNumberCode = record.stateNumberCode;
