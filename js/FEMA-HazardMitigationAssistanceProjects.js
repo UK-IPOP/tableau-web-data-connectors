@@ -51,7 +51,7 @@
 		var cols = [
 			{
 				id: 'region',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'stateNumberCode',
@@ -91,15 +91,15 @@
 			},
 			{
 				id: 'numberOfProperties',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'numberOfRecords',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'numberOfFinalProperties',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'status',
@@ -111,19 +111,19 @@
 			},
 			{
 				id: 'costSharePercentage',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'projectAmount',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'federalShareObligated',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'programFy',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'dateInitiallyApproved',
@@ -147,11 +147,11 @@
 			},
 			{
 				id: 'benefitCostRatio',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'netValueBenefits',
-				dataType: tableau.dataTypeEnum.int,
+				dataType: tableau.dataTypeEnum.string,
 			},
 			{
 				id: 'granteeTribalIndicator',
